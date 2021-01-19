@@ -1,10 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:BpmXamarin.ViewModels"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:vm="clr-namespace:BpmXamarin.ViewModels"
              mc:Ignorable="d"
-             x:Class="BpmXamarin.MainPage">
+             x:Class="BpmXamarin.Views.MainPage">
+    <ContentPage.BindingContext>
+        <vm:MainViewModel/>
+    </ContentPage.BindingContext>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -17,7 +21,7 @@
         <Label
             x:Name="bpmLabel"
         Grid.Row="1"
-        Text="0"
+        Text="{Binding BPM, StringFormat='{0:N0}'}"
             TextColor="DarkSalmon"
         HorizontalOptions="Center" 
         FontSize="Header" />
@@ -27,7 +31,7 @@
             TextColor="Salmon"
             HorizontalOptions="Center"
             WidthRequest="200" 
-            Clicked="Button_Clicked"
+           Command="{Binding TapCommand}"
             Text="TAP" />
 
     </Grid>
