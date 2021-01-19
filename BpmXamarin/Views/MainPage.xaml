@@ -22,7 +22,7 @@
             x:Name="bpmLabel"
         Grid.Row="1"
         Text="{Binding BPM, StringFormat='{0:N0}'}"
-            TextColor="DarkSalmon"
+            TextColor="Black"
         HorizontalOptions="Center" 
         FontSize="Header" />
         <Button
